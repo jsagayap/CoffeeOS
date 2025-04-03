@@ -1,0 +1,65 @@
+{
+  "home": [
+    {
+      "name": "Documents",
+      "format": "folder",
+      "type": "folder",
+      "contents": [
+        {
+          "name": "CHANGELOG.md",
+          "format": "md",
+          "type": "link",
+          "link": "/CHANGELOG.md"
+        },
+        {
+          "name": "COMMANDS.md",
+          "format": "md",
+          "type": "link",
+          "link": "/COMMANDS.md"
+        },
+        {
+          "name": "MOCHA.md",
+          "format": "md",
+          "type": "link",
+          "link": "/MOCHA.md"
+        },
+        {
+          "name": "README.md",
+          "format": "md",
+          "type": "link",
+          "link": "README.md"
+        },
+        {
+          "name": "LICENSE",
+          "format": "txt",
+          "type": "link",
+          "link": "/LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "Downloads",
+      "format": "folder",
+      "type": "folder",
+      "contents": ""
+    },
+    {
+      "name": "Music",
+      "format": "folder",
+      "type": "folder",
+      "contents": ""
+    },
+    {
+      "name": "Pictures",
+      "format": "folder",
+      "type": "",
+      "contents": ""
+    },
+    {
+      "name": "Videos",
+      "format": "folder",
+      "type": "folder",
+      "contents": ""
+    }
+  ]
+}

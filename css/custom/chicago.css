@@ -1,0 +1,536 @@
+:root,
+.light,
+.dark {
+  --csd-color: #010080;
+  --surface-color: #c0c0c0;
+  --dropdown-color: #c0c0c0;
+  --text-color: #000000;
+  --text-color-rgb: 0, 0, 0;
+  --contrast-1-rgb: 238, 238, 238;
+  --contrast-2-rgb: 17, 17, 17;
+  --popover-rgb: 221, 221, 221;
+  color-scheme: light dark;
+}
+
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("win95/ms_sans_serif.woff") format("woff");
+  src: url("win95/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixelated MS Sans Serif";
+  src: url("win95/ms_sans_serif_bold.woff") format("woff");
+  src: url("win95/ms_sans_serif_bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body,
+.login {
+  background: #008081 !important;
+  font-family: 'Pixelated MS Sans Serif', Arial, Nimbus Sans, sans-serif !important;
+}
+
+.login {
+  backdrop-filter: none;
+}
+
+.panel {
+  height: 26px;
+  background-color: #c0c0c0;
+  border-top: 1px solid #dfdfdf;
+  box-shadow: 0 1px 0 0 #ffffff inset;
+  padding: 0 2px;
+}
+
+.app-drawer,
+.app-tile {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  border-radius: 0;
+  transition: none;
+}
+
+.app-drawer {
+  width: 56px;
+}
+
+.app-drawer::after {
+  content: "Start";
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.app-icon {
+  max-width: 16px;
+  max-height: 16px;
+}
+
+.content,
+.login-label,
+.drawer-item,
+.file-name {
+  font-size: 11px;
+}
+
+.file {
+  border: 0;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.file-name {
+  margin: auto;
+}
+
+.file:hover,
+.file:active,
+.file:focus {
+  background-color: transparent;
+}
+
+.file:active .file-name,
+.file:focus .file-name {
+  width: fit-content;
+  background-color: #000080;
+  color: #ffffff;
+  outline: 1px dotted #ffff7f;
+}
+
+.drawer-item-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.panel-tray-item {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+}
+
+.panel-tray-item:hover,
+.app-tile:hover,
+.app-drawer,
+.app-drawer:hover,
+.context-menu,
+.dropdown-content,
+.pg-context-menu,
+.window {
+  border-radius: 0;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  box-shadow: 0 1px 0 0 #ffffff inset, 1px 0 0 0 #ffffff inset, 0 -1px 0 0 #808080 inset, -1px 0 0 #808080 inset;
+}
+
+.dropdown-content {
+  padding: 0;
+}
+
+#web-menu .dropdown-content,
+.pg-context-menu {
+  top: 50px;
+}
+
+.pg-cm-title {
+  font-size: 11px;
+}
+
+.panel-tray-item:hover,
+.app-tile:hover,
+.app-drawer:hover {
+  background-color: var(--surface-color);
+}
+
+.context-menu-item,
+.dropdown-item,
+.drawer-item {
+  border: 0;
+  border-radius: 0;
+  transition: none;
+  font-size: 11px;
+  margin: 1px;
+  padding: 4px 10px;
+}
+
+.drawer-item {
+  padding: 6px 10px;
+}
+
+.context-menu-item:hover,
+.dropdown-item:hover,
+.drawer-item:hover {
+  background-color: #010080;
+  color: #ffffff;
+}
+
+.menu-bar {
+  border-bottom: 0;
+}
+
+.menu-item {
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.window {
+  max-height: calc(100% - 26px);
+  padding: 3px;
+}
+
+.csd {
+  height: 18px;
+  justify-content: unset;
+  color: #ffffff;
+  padding: 0 2px;
+  border-bottom: 0;
+}
+
+.window.unfocused .csd {
+  background-color: #808080;
+  opacity: 1;
+}
+
+.csd-title {
+  font-size: 11px;
+  position: static;
+  transform: none;
+  margin-left: 8px;
+}
+
+.csd-title.rename {
+  padding: 0;
+}
+
+.csd-buttons {
+  gap: 1px;
+  margin-left: auto;
+}
+
+.sidebar-button,
+.csd-button {
+  width: 14px;
+  height: 12px;
+  padding: 0;
+}
+
+.csd-rename {
+  position: static;
+  padding: 0 8px;
+  font-size: 11px;
+  transform: none;
+  color: #ffffff;
+}
+
+.pg-button,
+.login-button,
+.sidebar-button,
+.csd-button {
+  color: var(--text-color);
+}
+
+.pg-button {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.res,
+.user-options-button,
+.login-button,
+.popover,
+.app-tile[opened="1"],
+.app-tile[minimized="1"],
+.image-controls,
+.button,
+.toolbar-button,
+.sidebar-button,
+.csd-button {
+  background-color: var(--surface-color);
+  border-radius: 0;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  box-shadow: 0 1px 0 0 #ffffff inset, 1px 0 0 0 #ffffff inset, 0 -1px 0 0 #808080 inset, -1px 0 0 #808080 inset;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.app-tile[opened="1"] {
+  min-width: 150px;
+  justify-content: left;
+  padding: 0 2px;
+}
+
+.app-tile[opened="1"] .app-name {
+  display: block !important;
+  font-size: 11px;
+}
+
+.button {
+  height: 23px;
+}
+
+.login-button:hover,
+.user-options-button {
+  background-color: var(--surface-color) !important;
+  color: var(--text-color) !important;
+}
+
+.user-options-button {
+  width: 24px;
+  height: 24px;
+}
+
+.toolbar-button {
+  padding: 4px;
+}
+
+.user-options-button:active,
+.login-button:active,
+.app-tile[minimized="1"]:active,
+.image-controls:active,
+.button:active,
+.toolbar-button:active,
+.csd-button:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: 0 1px 0 0 #000000 inset, 1px 0 0 0 #000000 inset, 0 -1px 0 0 #dfdfdf inset, -1px 0 0 #dfdfdf inset;
+}
+
+.popover {
+  bottom: 24px;
+}
+
+.drawer {
+  left: 0;
+  padding-left: 40px;
+}
+
+.drawer::before {
+  content: "CoffeeOS 95";
+  width: 32px;
+  height: calc(100% - 4px);
+  background-color: #808080;
+  color: #ffffff;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  writing-mode: sideways-lr;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-options {
+  border-top: 1px solid #808080;
+  box-shadow: 0 1px 0 0 #ffffff inset;
+}
+
+#wifi,
+#sound {
+  right: 0;
+}
+
+.dropdown-divider,
+.context-menu-divider {
+  border: 0;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  margin: 0 1px;
+}
+
+.app-tile.active-tile {
+  background: repeating-conic-gradient(#ffffff 0% 25%, transparent 0% 50%) 50% / 2px 2px;
+  border-radius: 0;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: 0 1px 0 0 #000000 inset, 1px 0 0 0 #000000 inset, 0 -1px 0 0 #dfdfdf inset, -1px 0 0 #dfdfdf inset;
+}
+
+.app-tile.active-tile .app-name {
+  font-weight: bold;
+}
+
+.active-ind {
+  display: none !important;
+}
+
+.csd-button:hover {
+  background-color: var(--surface-color);
+  border-radius: 0;
+}
+
+.login-password,
+.input-box,
+.select-box,
+.text-area {
+  background-color: #ffffff;
+  color: var(--text-color);
+  border-radius: 0;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: 0 1px 0 0 #000000 inset, 1px 0 0 0 #000000 inset, 0 -1px 0 0 #dfdfdf inset, -1px 0 0 #dfdfdf inset;
+  font-size: 11px;
+  padding: 5px;
+}
+
+.sidebar,
+.files-list,
+.pg-console,
+.pg-frame,
+#web-page {
+  background-color: #ffffff;
+  color: var(--text-color);
+  border-radius: 0;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: 0 1px 0 0 #000000 inset, 1px 0 0 0 #000000 inset, 0 -1px 0 0 #dfdfdf inset, -1px 0 0 #dfdfdf inset;
+}
+
+.sidebar {
+  margin-top: 2px;
+  padding: 2px;
+}
+
+.sidebar-item {
+  font-size: 11px;
+  padding: 4px 10px;
+  margin: 0;
+  border-radius: 0;
+  transition: none;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #010080;
+  color: #ffffff;
+}
+
+.pg-frame {
+  padding: 1px;
+}
+
+.login-avatar-circle,
+.settings-avatar-circle,
+.bg-thumbnail,
+.bg-accent,
+.paint-color,
+.paint-content,
+.terminal-content {
+  border-radius: 0;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: 0 1px 0 0 #000000 inset, 1px 0 0 0 #000000 inset, 0 -1px 0 0 #dfdfdf inset, -1px 0 0 #dfdfdf inset;
+}
+
+.toolbar {
+  background-color: var(--surface-color);
+  border-bottom: 0;
+}
+
+.status-bar {
+  height: 18px;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  margin-top: 2px;
+}
+
+.status-bar-label {
+  font-size: 11px;
+}
+
+.status-bar-label.btn {
+  height: 18px;
+}
+
+.toast {
+  height: 24px;
+  background: repeating-conic-gradient(#ffff00 0% 25%, #ffffff 0% 50%) 50% / 2px 2px;
+  border-color: #000000;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 11px;
+}
+
+.toast-close {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+}
+
+.list-item {
+  font-size: 11px;
+  padding: 4px;
+  border-radius: 0;
+}
+
+.list-item .feather {
+  stroke-width: 1.5;
+}
+
+.list-item:hover {
+  background-color: #010080;
+  color: #ffffff;
+}
+
+.image-zoom-level {
+  font-size: 11px;
+}
+
+.pg-console {
+  bottom: 25px;
+}
+
+.file,
+.prompt,
+.bg-thumbnail {
+  border-radius: 0;
+}
+
+.paint-color {
+  width: 20px;
+  height: 20px;
+}
+
+#paint-canvas {
+  box-shadow: 2px 2px 0px #808080;
+}
+
+.panel-right {
+  padding: 1px 8px;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#calc {
+  width: 228px;
+  height: 228px;
+}

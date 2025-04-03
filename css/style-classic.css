@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans');
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  background-image: linear-gradient(#35755c, #373767);
+  color: #ffffff;
+  height: 100vh;
+  margin: 0;
+  contain: content;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  stroke-width: 3;
+}
+
+.header-img {
+  text-align: center;
+}
+
+.header-img .feather {
+  width: 64px;
+  height: 64px;
+  stroke-width: 2;
+}
+
+.window {
+  position: absolute !important;
+  background-color: #333333;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+  width: 400px;
+  max-width: 100%;
+  min-width: 200px;
+  min-height: 150px;
+  contain: content;
+}
+
+.csd {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3b3b3b;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
+}
+
+.csd-title {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.csd img {
+  width: 16px;
+  height: 16px;
+}
+
+.csd-buttons {
+  text-align: right;
+}
+
+.close-app:hover {
+  background-color: rgba(255, 255, 255, .15);
+  border-radius: 99px;
+}
+
+.content {
+  padding: 16px;
+  font-size: 14px;
+}
+
+/* Calculator */
+#calc {
+  width: 272px !important;
+  height: 264px !important;
+}
+
+.calc-container {
+  table-layout : fixed;
+  width: 100%;
+  padding: 8px;
+}
+
+.calc-input {
+  background-color: rgba(255, 255, 255, .25);
+  color: #ffffff;
+  border-radius: 4px;
+  border: 0;
+  padding: 10px 4px;
+}
+
+.calc-tile {
+  background-color: rgba(255, 255, 255, .15);
+  color: #ffffff;
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+  padding: 10px 4px;
+  text-align: center;
+}
+
+.calc-tile:hover {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+/* Text Editor */
+.editor {
+  background-color: transparent;
+  color: #ffffff;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* References */
+#ref a {
+  display: block;
+  color: #6f9ed2;
+  line-height: 1.75;
+  text-decoration: none;
+}
+
+/* Terminal */
+#term {
+  background-color: rgba(0, 0, 0, .8);
+  backdrop-filter: blur(16px);
+}
+
+.terminal-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.terminal-content ul,
+.terminal-content li,
+.terminal-content pre {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.terminal-content .prompt {
+  display: inline-block;
+}
+
+.terminal-content #prompt {
+  background-color: transparent;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+/* Run */
+#run {
+  width: 220px !important;
+  height: 50px !important;
+}
+
+#run input[type="text"] {
+  background-color: rgba(255, 255, 255, .15);
+  color: #ffffff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+/* Change Background */
+#bgc input[type="text"],
+#bgc select,
+#bgc button {
+  background-color: rgba(255, 255, 255, .15);
+  color: #ffffff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+/* Panel */
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, .75);
+  border-top: 1px solid rgba(255, 255, 255, .15);
+  backdrop-filter: blur(16px);
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.panel-icons {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.app-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.app-icon:hover {
+  background-color: rgba(255, 255, 255, .15);
+}
+
+.app-icon img,
+.app-icon svg {
+  max-width: 24px;
+  max-height: 24px;
+  margin-left: 8px;
+}
+
+.app-icon .feather {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+.panel-right {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Tray */
+.panel-tray {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.panel-tray svg {
+  padding: 8px;
+  margin: 0 2px !important;
+}
+
+.panel-tray svg:hover {
+  background-color: rgba(255, 255, 255, .15);
+  border-radius: 4px;
+}
+
+/* Rezize popover */
+.res {
+  background-color: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(16px);
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Popover */
+.popover {
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(16px);
+  position: absolute;
+  bottom: 55px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* App Drawer */
+#drawer {
+  display: flex;
+  align-items: center;
+  left: 10px;
+}
+
+#drawer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 4px;
+}
+
+#drawer li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#drawer li:hover {
+  background-color: rgba(255, 255, 255, .15);
+}
+
+#drawer li img,
+#drawer li svg {
+  width: 24px;
+  margin-right: 10px;
+}
+
+/* Wi-Fi */
+#wifi {
+  display: flex;
+  align-items: center;
+  right: 10px;
+}
+
+#wifi ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 4px;
+}
+
+#wifi li {
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#wifi li svg {
+  margin-right: 10px;
+}
+
+#wifi li:hover {
+  background-color: rgba(255, 255, 255, .15);
+}
+
+/* Sound */ 
+#sound {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  right: 10px;
+}
+
+#sound svg {
+  margin-left: 10px;
+  margin-right: 8px;
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CoffeeOS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="icon" type="image/icon" href="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/icon.svg?v=1652263175191">
+  <!-- Page stylesheet -->
+  <link rel="stylesheet" href="css/style-classic.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <!-- Page script -->
+  <script src="js/script-classic.js"></script>
+</head>
+<body id="body">
+  <!-- Introduction -->
+  <div class="window" id="intro" style="display: none;" tabindex="-1">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/applications-accessories.svg?v=1652257838104">
+      <label class="csd-title">Welcome!</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#intro"></i>
+      </div>
+    </div>
+    <div class="content">
+      <div class="header-img">
+        <i data-feather="coffee"></i>
+      </div>
+      <p>
+        CoffeeOS is a fake operating system made by me using HTML, CSS, and JavaScript. Feel free to explore around!
+        <br /><br />
+        Made for assignment submission purposes only.
+      </p>
+    </div>
+  </div>
+  <!-- Calculator -->
+  <div class="window" id="calc" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-calculator.svg?v=1652257838104">
+      <label class="csd-title">Calculator</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#calc"></i>
+      </div>
+    </div>
+    <table class="calc-container">
+     <tr>
+        <td colspan="3"><input type="text" class="calc-input" id="result" disabled></td>
+        <td><input type="button" value="C" class="calc-tile" onclick="calcClear()"></td>
+     </tr>
+     <tr>
+        <td><input type="button" value="1" class="calc-tile" onclick="calcDis('1')"></td>
+        <td><input type="button" value="2" class="calc-tile" onclick="calcDis('2')"></td>
+        <td><input type="button" value="3" class="calc-tile" onclick="calcDis('3')"></td>
+        <td><input type="button" value="/" class="calc-tile" onclick="calcDis('/')"></td>
+     </tr>
+     <tr>
+        <td><input type="button" value="4" class="calc-tile" onclick="calcDis('4')"></td>
+        <td><input type="button" value="5" class="calc-tile" onclick="calcDis('5')"></td>
+        <td><input type="button" value="6" class="calc-tile" onclick="calcDis('6')"></td>
+        <td><input type="button" value="-" class="calc-tile" onclick="calcDis('-')"></td>
+     </tr>
+     <tr>
+        <td><input type="button" value="7" class="calc-tile" onclick="calcDis('7')"></td>
+        <td><input type="button" value="8" class="calc-tile" onclick="calcDis('8')"></td>
+        <td><input type="button" value="9" class="calc-tile" onclick="calcDis('9')"></td>
+        <td><input type="button" value="+" class="calc-tile" onclick="calcDis('+')"></td>
+     </tr>
+     <tr>
+        <td><input type="button" value="." class="calc-tile" onclick="calcDis('.')"></td>
+        <td><input type="button" value="0" class="calc-tile" onclick="calcDis('0')"></td>
+        <td><input type="button" value="=" class="calc-tile" onclick="calcSolve()"></td>
+        <td><input type="button" value="*" class="calc-tile" onclick="calcDis('*')"></td>
+     </tr>
+    </table>
+  </div>
+  <!-- Text Editor -->
+  <div class="window" id="ed" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-text-editor.svg?v=1652257838104">
+      <label class="csd-title">Text Editor</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#ed"></i>
+      </div>
+    </div>
+    <textarea class="editor" spellcheck="false"></textarea>
+  </div>
+  <!-- References -->
+  <div class="window" id="ref" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-ebook-reader.svg?v=1652257838104">
+      <label class="csd-title">References</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#ref"></i>
+      </div>
+    </div>
+    <div class="content">
+      <p>Components/libraries used for this assignment:</p>
+      <a target="_blank" href="https://jquery.com/">jQuery</a>
+      <a target="_blank" href="https://fonts.google.com/specimen/Fira+Sans">Fira Sans Font</a>
+      <a target="_blank" href="https://feathericons.com/">Feather Icons</a>
+      <a target="_blank" href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/">Papirus Icons</a>
+      
+      <p>Resources I learned from:</p>
+      <a target="_blank" href="https://developer.mozilla.org/">MDN Web Docs</a>
+      <a target="_blank" href="https://css-tricks.com/">CSS-Tricks</a>
+      <a target="_blank" href="https://api.jqueryui.com/">jQuery UI API Docs</a>
+      <a target="_blank" href="https://stackoverflow.com/">Stack Overflow</a>
+    </div>
+  </div>
+  <!-- Terminal -->
+  <div class="window" id="term" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/utilities-terminal.svg?v=1652257838104">
+      <label class="csd-title">Terminal</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#term"></i>
+      </div>
+    </div>
+    <div class="terminal-content">
+      <code>
+        <ul id="buffer">
+          <li>CoffeeOS 22.04 (build 20220511)</li>
+        </ul>
+        <div class="prompt">
+          <span><span style="color: #1aec0f;">user@coffeeos</span>:~$ </span>
+          <input type="text" id="prompt">
+        </div>
+      </code>
+    </div>
+  </div>
+  <!-- Run -->
+  <div class="window" id="run" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/preferences-activities.svg?v=1652257838104">
+      <label class="csd-title">Run</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#run"></i>
+      </div>
+    </div>
+    <div class="content">
+      <p>Run a program or app</p>
+      <input type="text" class="run-app">
+    </div>
+  </div>
+  <!-- Change Background -->
+  <div class="window" id="bgc" style="display: none;">
+    <div class="csd">
+      <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/preferences-activities.svg?v=1652257838104">
+      <label class="csd-title">Change Background</label>
+      <div class="csd-buttons">
+        <i data-feather="x" class="close-app" value="#bgc"></i>
+      </div>
+    </div>
+    <div class="content">
+      <p>Enter the URL of the image to set your background</p>
+      <input type="text" class="bg-url">
+      <p>Size</p>
+      <select class="bg-type">
+        <option value="cover">Cover</option>
+        <option value="contain">Contain</option>
+      </select>
+      <button class="change-bg">Apply</button>
+    </div>
+  </div>
+  <!-- Panel -->
+  <div class="panel">
+    <div class="panel-icons">
+      <div class="app-icon" id="open-drawer">
+        <i data-feather="menu" title="App Drawer"></i>
+      </div>
+      <div class="app-icon open-app" value="#intro">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/applications-accessories.svg?v=1652257838104" title="Introduction">
+      </div>
+      <div class="app-icon open-app" value="#calc">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-calculator.svg?v=1652257838104" title="Calculator">
+      </div>
+      <div class="app-icon open-app" value="#ed">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-text-editor.svg?v=1652257838104" title="Text Editor">
+      </div>
+      <div class="app-icon open-app" value="#ref">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-ebook-reader.svg?v=1652257838104" title="References">
+      </div>
+      <div class="app-icon open-app" value="#term">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/utilities-terminal.svg?v=1652257838104" title="Terminal">
+      </div>
+    </div>
+    <div class="panel-right">
+      <div class="panel-tray">
+        <i data-feather="wifi" id="open-wifi" title="Wi-Fi"></i>
+        <i data-feather="volume-2" id="open-sound" title="Sound"></i>
+        <i data-feather="coffee" title="Coffee"></i>
+      </div>
+      <label class="time" id="time"></label>
+    </div>
+  </div>
+  <!-- Resize popover -->
+  <div class="res" style="display: none;">
+    <p id="res-val"></p>
+  </div>
+  <!-- App Drawer popover -->
+  <div class="popover" id="drawer" style="display: none;">
+    <ul>
+      <li class="open-app" value="#intro">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/applications-accessories.svg?v=1652257838104">
+        <label>Introduction</label>
+      </li>
+      <li class="open-app" value="#calc">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-calculator.svg?v=1652257838104">
+        <label>Calculator</label>
+      </li>
+      <li class="open-app" value="#ed">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-text-editor.svg?v=1652257838104">
+        <label>Text Editor</label>
+      </li>
+      <li class="open-app" value="#ref">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/accessories-ebook-reader.svg?v=1652257838104">
+        <label>References</label>
+      </li>
+      <li class="open-app" value="#term">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/utilities-terminal.svg?v=1652257838104">
+        <label>Terminal</label>
+      </li>
+      <li class="open-app" value="#run">
+        <img src="https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/preferences-activities.svg?v=1652257838104">
+        <label>Run</label>
+      </li>
+    </ul>
+  </div>
+  <!-- Wi-Fi popover -->
+  <div class="popover" id="wifi" style="display: none;">
+    <ul>
+      <li>
+        <i data-feather="wifi"></i>
+        <label>Unknown</label>
+      </li>
+      <li>
+        <i data-feather="wifi-off"></i>
+        <label>Neighbor's Wi-Fi</label>
+      </li>
+    </ul>
+  </div>
+  <!-- Sound popover -->
+  <div class="popover" id="sound" style="display: none;">
+    <i data-feather="volume-2"></i>
+    <input type="range">
+  </div>
+<script>
+  feather.replace()
+</script>
+</body>
+</html>

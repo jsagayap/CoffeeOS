@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <title>CoffeeOS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="icon" type="image/icon" href="assets/icon.svg">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- Scripts -->
+  <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/feather.min.js"></script>
+  <script type="text/javascript" src="js/showdown.min.js"></script>
+  <script type="text/javascript" src="js/confetti.min.js"></script>
+  <script type="text/javascript" src="js/jquery.jqscribble.js"></script>
+  <!-- CodeMirror -->
+  <script src="js/codemirror.js"></script>
+  <script src="js/autorefresh.js"></script>
+  <link rel="stylesheet" href="css/codemirror.css">
+  <link rel="stylesheet" href="css/material.css">
+  <script src="js/mode/xml/xml.js"></script>
+  <script src="js/mode/javascript/javascript.js"></script>
+  <script src="js/mode/css/css.js"></script>
+  <script src="js/mode/htmlmixed/htmlmixed.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body id="body">
+  <noscript>
+    <code>
+      <label>Oops! An error has occured</label><br />
+      <label>Please enable JavaScript to continue<span class="bc"></span></label>
+    </code>
+  </noscript>
+  <!-- Login -->
+  <div class="login" style="display: none;">
+    <div class="login-avatar-circle">
+      <img class="login-avatar" src="assets/user.svg">
+    </div>
+    <h3 class="login-name">User</h3>
+    <div class="login-form">
+      <input type="password" class="login-password" placeholder="Password">
+      <button type="button" class="login-button"><i data-feather="chevron-right"></i></button>
+    </div>
+    <div class="power-options">
+      <button type="button" class="user-options-button fullscreen" title="Go to fullscreen"><i data-feather="maximize"></i></button>
+      <button type="button" class="user-options-button exit-fs" title="Exit fullscreen" style="display: none;"><i data-feather="minimize"></i></button>
+      <button type="button" class="user-options-button shutdown" title="Power off CoffeeOS"><i data-feather="power"></i></button>
+    </div>
+    <label class="login-label login-time"></label>
+    <label class="login-label login-system"></label>
+  </div>
+  <!-- Desktop -->
+  <div class="environment" style="display: none;">
+    <div class="desktop">
+      <div class="desktop-icons">
+        <div class="file" data-file="README.md">
+          <img class="file-icon" src="assets/markdown.svg">
+          <label class="file-name">README.md</label>
+        </div>
+        <div class="file" data-file="COMMANDS.md">
+          <img class="file-icon" src="assets/markdown.svg">
+          <label class="file-name">COMMANDS.md</label>
+        </div>
+        <div class="file" data-file="MOCHA.md">
+          <img class="file-icon" src="assets/markdown.svg">
+          <label class="file-name">MOCHA.md</label>
+        </div>
+        <div class="file" data-file="CHANGELOG.md">
+          <img class="file-icon" src="assets/markdown.svg">
+          <label class="file-name">CHANGELOG.md</label>
+        </div>
+      </div>
+    </div>
+    <!-- Introduction -->
+    <div class="window" id="intro" style="display: none;" tabindex="-1">
+      <div class="csd">
+        <div class="csd-left">
+          <div class="sidebar-button">
+            <i data-feather="menu"></i>
+          </div>
+          <img class="csd-icon" src="assets/intro.svg">
+        </div>
+        <label class="csd-title">Welcome to CoffeeOS</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#intro"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#intro"></i>
+          <i data-feather="x" class="csd-button close-app" value="#intro"></i>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="sidebar">
+          <ul class="sidebar-nav">
+            <li class="sidebar-item active" id="sb-item-welcome">Welcome</li>
+            <li class="sidebar-item" id="sb-item-commands">Commands</li>
+            <li class="sidebar-item" id="sb-item-tooklit">Toolkit</li>
+            <li class="sidebar-item" id="sb-item-changelog">Changelog</li>
+            <hr class="sidebar-divider">
+            <a target="_blank" class="sidebar-link" href="https://glitch.com/edit/#!/coffee-os">
+              <li class="sidebar-item">Source Code<i data-feather="external-link" class="ml-05"></i></li>
+            </a>
+            <a target="_blank" class="sidebar-link" href="https://coffee-os.glitch.me/classic">
+              <li class="sidebar-item">Classic Mode<i data-feather="external-link" class="ml-05"></i></li>
+            </a>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="intro-content lh-175 padded-lg" id="intro-welcome"></div>
+          <div class="intro-content lh-175 padded-lg" id="intro-commands" style="display: none;"></div>
+          <div class="intro-content lh-175 padded-lg" id="intro-toolkit" style="display: none;"></div>
+          <div class="intro-content lh-175 padded-lg" id="intro-changelog" style="display: none;"></div>
+          <div class="toast" id="intro-toast">
+            <label>This window will only show up once on startup, you can access this anytime in the app drawer.</label>
+            <div class="toast-close ml-10">
+              <i data-feather="x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- File Manager -->
+    <div class="window" id="files" style="display: none;" tabindex="-1">
+      <div class="csd">
+        <img class="csd-icon" src="assets/files.svg">
+        <label class="csd-title">File Manager (DEV)</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#files"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#files"></i>
+          <i data-feather="x" class="csd-button close-app" value="#files"></i>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar-button" title="Back">
+          <i data-feather="arrow-left"></i>
+        </div>
+        <div class="toolbar-button" title="Forward">
+          <i data-feather="arrow-right"></i>
+        </div>
+        <input type="text" class="current-dir input-box w-100" value="/home/" readonly>
+        <div class="toolbar-button" id="files-newfolder" title="Create a new folder">
+          <i data-feather="folder-plus"></i>
+        </div>
+        <div class="toolbar-button" id="files-refresh" title="Refresh directory contents">
+          <i data-feather="refresh-cw"></i>
+        </div>
+      </div>
+      <div class="files-list icon-list d-flex wh-100 border-box">
+      </div>
+    </div>
+    <!-- Calculator -->
+    <div class="window" id="calc" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/calc.svg">
+        <label class="csd-title">Calculator</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#calc"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#calc"></i>
+          <i data-feather="x" class="csd-button close-app" value="#calc"></i>
+        </div>
+      </div>
+      <div class="calc-container h-100 d-flex">
+        <div class="calc-row h-100 d-flex">
+          <input type="text" class="input-box wh-100" id="calc-input">
+        </div>
+        <div class="calc-row h-100 d-flex">
+          <button type="button" value="D" class="button wh-100" id="calc-delete">Del</button>
+          <button type="button" value="(" class="button wh-100 calc-append">(</button>
+          <button type="button" value=")" class="button wh-100 calc-append">)</button>
+          <button type="button" value="C" class="button wh-100" id="calc-clear">C</button>
+        </div>
+        <div class="calc-row h-100 d-flex">
+          <button type="button" value="1" class="button wh-100 calc-append">1</button>
+          <button type="button" value="2" class="button wh-100 calc-append">2</button>
+          <button type="button" value="3" class="button wh-100 calc-append">3</button>
+          <button type="button" value="/" class="button wh-100 calc-append">/</button>
+        </div>
+        <div class="calc-row h-100 d-flex">
+          <button type="button" value="4" class="button wh-100 calc-append">4</button>
+          <button type="button" value="5" class="button wh-100 calc-append">5</button>
+          <button type="button" value="6" class="button wh-100 calc-append">6</button>
+          <button type="button" value="-" class="button wh-100 calc-append">-</button>
+        </div>
+        <div class="calc-row h-100 d-flex">
+          <button type="button" value="7" class="button wh-100 calc-append">7</button>
+          <button type="button" value="8" class="button wh-100 calc-append">8</button>
+          <button type="button" value="9" class="button wh-100 calc-append">9</button>
+          <button type="button" value="+" class="button wh-100 calc-append">+</button>
+        </div>
+        <div class="calc-row h-100 d-flex">
+          <button type="button" value="." class="button wh-100 calc-append">.</button>
+          <button type="button" value="0" class="button wh-100 calc-append">0</button>
+          <button type="button" value="=" class="button wh-100" id="calc-equal">=</button>
+          <button type="button" value="*" class="button wh-100 calc-append">*</button>
+        </div>
+      </div>
+    </div>
+    <!-- Text Editor -->
+    <div class="window" id="ed" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/ed.svg">
+        <label class="csd-title rename" title="Click to rename">Untitled</label>
+        <span contenteditable="true" class="csd-rename" id="ed-rename" spellcheck="false" style="display: none;"></span>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#ed"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#ed"></i>
+          <i data-feather="x" class="csd-button close-app" value="#ed"></i>
+        </div>
+      </div>
+      <div>
+        <ul class="menu-bar">
+          <li class="menu-item dropdown">
+            <label class="menu-label">File</label>
+            <div class="dropdown-content">
+              <input type="file" id="ed-of" hidden />
+              <label class="dropdown-item" id="ed-new">New</label>
+              <label class="dropdown-item" id="ed-open">Open...</label>
+              <label class="dropdown-item" id="ed-save">Save</label>
+              <hr class="dropdown-divider">
+              <label class="dropdown-item" id="ed-exit">Exit</label>
+            </div>
+          </li>
+          <li class="menu-item dropdown">
+            <label class="menu-label">View</label>
+            <div class="dropdown-content">
+              <label class="dropdown-item" id="ed-fs-i">+ Font size</label>
+              <label class="dropdown-item" id="ed-fs-d">- Font size</label>
+              <hr class="dropdown-divider">
+              <label class="dropdown-item" id="ed-wrap">Toggle text wrap</label>
+            </div>
+          </li>
+          <li class="menu-item dropdown">
+            <label class="menu-label">Tools</label>
+            <div class="dropdown-content">
+              <label class="dropdown-item" id="ed-spc">Spell checking</label>
+              <label class="dropdown-item" id="ed-acr">Auto-correct</label>
+              <label class="dropdown-item" id="ed-aco">Auto-complete</label>
+              <label class="dropdown-item" id="ed-acp">Auto-captalize</label>
+            </div>
+          </li>
+          <li class="menu-item dropdown">
+            <label class="menu-label">Help</label>
+            <div class="dropdown-content">
+              <label class="dropdown-item" id="ed-about">About</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex wh-100" style="min-height: 0;">
+        <textarea class="text-area editor-area" id="editor-area" spellcheck="false"></textarea>
+        <div class="editor-preview wh-100 padded-lg"></div>
+      </div>
+      <div class="status-bar">
+        <div class="status-bar-content">
+          <label class="status-bar-label" id="ed-state"></label>
+        </div>
+        <div class="status-bar-content">
+          <label class="status-bar-label btn" id="ed-lr">Live Reload: Disabled</label>
+          <label class="status-bar-label btn" id="ed-md"><i data-feather="file-text" class="mr-05"></i>Preview</label>
+          <label class="status-bar-label" id="ed-ln-cl">Ln 0, Col 0</label>
+        </div>
+      </div>
+    </div>
+    <!-- Terminal -->
+    <div class="window" id="term" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/term.svg">
+        <label class="csd-title">Terminal (DEV)</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#term"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#term"></i>
+          <i data-feather="x" class="csd-button close-app" value="#term"></i>
+        </div>
+      </div>
+      <div class="terminal-content">
+        <code>
+          <ul id="buffer">
+            <li>Note: You are on the Dev branch of this project. Most commands are broken or are made unused for now</li>
+          </ul>
+          <div class="terminal-prompt">
+            <span class="ps"><span style="color: #1aec0f;"><span id="currentUser" style="color: #1aec0f;">user</span>@coffeeos</span>:<span style="color: #3f7e90; font-weight: bold;">~</span>$ </span>
+            <span contenteditable id="prompt"></span>
+          </div>
+        </code>
+      </div>
+    </div>
+    <!-- Run -->
+    <div class="window dialog" id="run" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/run.svg">
+        <label class="csd-title">Run</label>
+        <div class="csd-buttons">
+          <i data-feather="x" class="csd-button close-app" value="#run"></i>
+        </div>
+      </div>
+      <div class="content padded-sm">
+        <p>Run a program or app</p>
+        <input type="text" class="input-box w-100" list="app-list" id="run-app">
+        <datalist id="app-list"></datalist>
+      </div>
+    </div>
+    <!-- Settings -->
+    <div class="window" id="settings" style="display: none;">
+      <div class="csd">
+        <div class="csd-left">
+          <div class="sidebar-button">
+            <i data-feather="menu"></i>
+          </div>
+          <img class="csd-icon" src="assets/settings.svg">
+        </div>
+        <label class="csd-title">Settings</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#settings"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#settings"></i>
+          <i data-feather="x" class="csd-button close-app" value="#settings"></i>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="sidebar">
+          <ul class="sidebar-nav">
+            <li class="sidebar-item active" id="sb-item-account"><i data-feather="user" class="mr-10"></i>Account</li>
+            <li class="sidebar-item" id="sb-item-appearance"><i data-feather="monitor" class="mr-10"></i>Appearance</li>
+            <li class="sidebar-item" id="sb-item-customize"><i data-feather="code" class="mr-10"></i>Customize</li>
+            <li class="sidebar-item" id="sb-item-about"><i data-feather="info" class="mr-10"></i>About</li>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="settings-content padded-sm" id="settings-account">
+            <div class="settings-row settings-avatar-container">
+              <div class="settings-avatar-circle">
+                <img class="settings-avatar wh-100" src="assets/user.svg">
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="form-control">
+                <label>Username</label>
+                <input type="text" class="input-box" id="user-username" value="user" placeholder="Enter your username">
+              </div>
+              <div class="form-control">
+                <label>Avatar URL</label>
+                <input type="text" class="input-box" id="user-avatar" placeholder="Enter your avatar URL">
+              </div>
+            </div>
+            <div class="settings-row text-right">
+              <button class="button" id="apply-user">Apply changes</button>
+            </div>
+          </div>
+          <div class="settings-content padded-sm" id="settings-appearance" style="display: none;">
+            <div class="settings-appearance-current">
+              <div class="bg-theme">
+                <div class="bg-thumbnail active" value="light">
+                  <div class="bg-thumbnail-active-window" style="background-color: #e6e6e6;">
+                    <div class="bg-placeholder" style="background-color: rgba(17, 17, 17, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(17, 17, 17, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(17, 17, 17, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(17, 17, 17, .3);"></div>
+                  </div>
+                  <div class="bg-thumbnail-active-panel" style="background-color: rgba(238, 238, 238, .75); border-top-color: rgba(17, 17, 17, .15);"></div>
+                </div>
+                <label class="bg-theme-label">Light</label>
+              </div>
+              <div class="bg-theme">
+                <div class="bg-thumbnail active selected" value="dark">
+                  <div class="bg-thumbnail-active-window" style="background-color: #333333;">
+                    <div class="bg-placeholder" style="background-color: rgba(255, 255, 255, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(255, 255, 255, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(255, 255, 255, .3);"></div>
+                    <div class="bg-placeholder" style="background-color: rgba(255, 255, 255, .3);"></div>
+                  </div>
+                  <div class="bg-thumbnail-active-panel" style="background-color: rgba(17, 17, 17, .75); border-top-color: rgba(255, 255, 255, .15);"></div>
+                </div>
+                <label class="bg-theme-label">Dark</label>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="form-control" style="margin: 0;">
+                <label>Accent color</label>
+                <div class="accent-colors d-flex">
+                  <div class="bg-accent" style="background-color: rgb(255, 0, 0);"></div>
+                  <div class="bg-accent" style="background-color: rgb(255, 85, 0);"></div>
+                  <div class="bg-accent" style="background-color: rgb(255, 187, 0);"></div>
+                  <div class="bg-accent" style="background-color: rgb(85, 255, 85);"></div>
+                  <div class="bg-accent" style="background-color: rgb(255, 136, 204);"></div>
+                  <div class="bg-accent" style="background-color: rgb(187, 85, 204);"></div>
+                  <div class="bg-accent" style="background-color: rgb(0, 187, 255);"></div>
+                  <div class="bg-accent selected" style="background-color: rgb(0, 136, 255);"></div>
+                </div>
+              </div>
+            </div>
+            <div class="settings-row text-center">
+              <div class="bg-thumbnail" style="background-image: linear-gradient(rgb(54, 193, 220), rgb(54, 234, 162));"></div>
+              <div class="bg-thumbnail" style="background-image: linear-gradient(rgb(220, 113, 174), rgb(188, 138, 232));"></div>
+              <div class="bg-thumbnail" style="background-image: linear-gradient(rgb(49, 161, 215), rgb(221, 32, 245));"></div>
+              <div class="bg-thumbnail" style="background-image: linear-gradient(rgb(34, 34, 34), rgb(68, 68, 68));"></div>
+              <div class="bg-thumbnail" style="background-image: url('/assets/wallpapers/Honeywave.jpg');"></div>
+              <div class="bg-thumbnail" style="background-image: url('/assets/wallpapers/IceCold.png');"></div>
+              <div class="bg-thumbnail" style="background-image: url('/assets/wallpapers/MilkyWay.png');"></div>
+              <div class="bg-thumbnail" style="background-image: url('/assets/wallpapers/Summer.jpg');"></div>
+              <div class="d-flex fh-center">
+                <button type="button" class="button" id="random-bg">Generate background gradient</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="form-control">
+                <label>Background image URL</label>
+                <input type="text" class="input-box" id="bg-url" placeholder="Image URL">
+              </div>
+              <div class="form-control">
+                <label>Background size</label>
+                <select class="select-box" id="bg-type">
+                  <option value="cover">Cover</option>
+                  <option value="contain">Contain</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label>Background position</label>
+                <select class="select-box" id="bg-pos">
+                  <option value="top">Top</option>
+                  <option value="left">Left</option>
+                  <option value="center">Center</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-row text-right">
+              <button class="button" id="change-bg">Apply changes</button>
+            </div>
+          </div>
+          <div class="settings-content padded-sm" id="settings-customize" style="display: none;">
+            <div class="settings-row">
+              <div class="form-control">
+                <label>Interface font</label>
+                <input type="text" class="input-box" id="custom-font" placeholder="Font name" value="Fira Sans">
+              </div>
+              <div class="form-control">
+                <label>Inject custom stylesheet</label>
+                <input type="text" class="input-box" id="custom-stylesheet" placeholder="Stylesheet URL">
+              </div>
+            </div>
+            <div class="settings-row text-right">
+              <button class="button" id="apply-custom">Apply changes</button>
+            </div>
+          </div>
+          <div class="settings-content padded-sm" id="settings-about" style="display: none;">
+            <div class="padded-lg text-center">
+              <img class="system-icon" id="system-icon" src="assets/icon.svg">
+              <h3 class="system-name">CoffeeOS</h3>
+              <small class="system-version">N/A</small>
+              <p>CoffeeOS is a fake operating system and desktop environment made in JavaScript.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Games -->
+    <div class="window" id="emu" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/emu.svg">
+        <label class="csd-title">Games</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#emu"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#emu"></i>
+          <i data-feather="x" class="csd-button close-app" value="#emu"></i>
+        </div>
+      </div>
+      <div class="emu-list icon-list d-flex wh-100 border-box padded-sm">
+      </div>
+    </div>
+    <!-- VS Code -->
+    <div class="window" id="vscode" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/vscode.ico">
+        <label class="csd-title">Visual Studio Code</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#vscode"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#vscode"></i>
+          <i data-feather="x" class="csd-button close-app" value="#vscode"></i>
+        </div>
+      </div>
+      <div class="overlay"></div>
+      <iframe class="wh-100" id="if-vscode" frameborder="0"></iframe>
+    </div>
+    <!-- Browser -->
+    <div class="window" id="web" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/web.svg">
+        <label class="csd-title">Browser (DEV)</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#web"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#web"></i>
+          <i data-feather="x" class="csd-button close-app" value="#web"></i>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar-button" id="web-back" title="Go back one page" style="opacity: .5;">
+          <i data-feather="arrow-left"></i>
+        </div>
+        <div class="toolbar-button" id="web-forward" title="Go forward one page" style="opacity: .5;">
+          <i data-feather="arrow-right"></i>
+        </div>
+        <div class="toolbar-button" id="web-refresh" title="Refresh page">
+          <i data-feather="refresh-cw"></i>
+        </div>
+        <input type="text" class="input-box w-100" id="web-bar" placeholder="Enter address">
+        <div class="toolbar-button" id="web-home" title="Homepage">
+          <i data-feather="home"></i>
+        </div>
+        <div class="toolbar-button dropdown" id="web-menu">
+          <i data-feather="menu"></i>
+          <div class="dropdown-content">
+            <label class="dropdown-item" id="web-menu-exit">Exit</label>
+          </div>
+        </div>
+      </div>
+      <div class="toast">
+        <label>Note: Most websites do not work due to Same-Origin Policy. <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Learn more</a></label>
+        <div class="toast-close ml-10">
+          <i data-feather="x"></i>
+        </div>
+      </div>
+      <div class="web-homepage">
+        <div class="label-container">
+          <label>Favorite Sites</label>
+        </div>
+        <div class="links">
+          <div class="link-card" data-url="">
+            <div class="link-card-favicon">
+              <img src="../assets/text.svg">
+            </div>
+            <label>Wikipedia</label>
+          </div>
+        </div>
+      </div>
+      <iframe class="wh-100" id="web-page" frameborder="0" style="display: none;"></iframe>
+    </div>
+    <!-- Image Viewer -->
+    <div class="window" id="image" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/image.svg">
+        <label class="csd-title">Image Viewer</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#image"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#image"></i>
+          <i data-feather="x" class="csd-button close-app" value="#image"></i>
+        </div>
+      </div>
+      <div class="image-view h-100">
+        <img class="image-img wh-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NgYGD4DwABBAEAwS2OUAAAAABJRU5ErkJggg==">
+        <div class="image-cc w-100">
+          <div class="image-controls">
+            <div class="image-button" id="image-zoom-in" title="Zoom in"><i data-feather="zoom-in"></i></div>
+            <div class="image-button" id="image-zoom-out" title="Zoom out"><i data-feather="zoom-out"></i></div>
+            <div class="image-button" id="image-scale-100" title="Scale to 100%"><i data-feather="minimize"></i></div>
+            <div class="image-button" id="image-ori-scale" title="Original scale"><i data-feather="maximize"></i></div>
+            <div class="image-button" id="image-rotate" title="Rotate image"><i data-feather="rotate-cw"></i></div>
+            <div class="image-button" id="image-load" title="Load image"><i data-feather="upload"></i></div>
+            <label class="image-zoom-level">100%</label>
+          </div>
+        </div>
+        <div class="image-open prompt">
+          <div class="form-control ml-10 mr-10">
+            <input type="text" class="input-box" id="image-url" placeholder="Enter image URL">
+            <button type="button" class="button" id="load-image">Load</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Playground -->
+    <div class="window" id="playground" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/playground.svg">
+        <label class="csd-title">Playground (alpha)</label>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#playground"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#playground"></i>
+          <i data-feather="x" class="csd-button close-app" value="#playground"></i>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="pg-toolbar d-flex">
+          <button class="pg-button" id="pg-ori" title="Change view orientation"><i data-feather="columns"></i></button>
+          <button class="pg-button active" id="tb-html" title="View HTML code"><i data-feather="code"></i><label>HTML</label></button>
+          <button class="pg-button" id="tb-css" title="View CSS code"><i data-feather="layout"></i><label>CSS</label></button>
+          <button class="pg-button" id="tb-js" title="View JavaScript code"><i data-feather="terminal"></i><label>JS</label></button>
+          <div class="pg-sel-divider"></div>
+          <button class="pg-button" id="pg-scripts" title="Add external scripts">
+            <i data-feather="plus"></i>
+            <div class="pg-context-menu" title="" style="display: none;">
+              <label class="pg-cm-title">JavaScript framework</label>
+              <select class="select-box" id="pg-js-lib" disabled>
+                <option value="js">None</option>
+                <option value="jq">jQuery 3.6.0</option>
+              </select>
+              <label class="pg-cm-title">External script URL</label>
+              <input type="text" class="input-box" id="pg-external-script" placeholder="e.g. https://code.jquery.com/jquery-3.6.0.min.js" disabled>
+            </div>
+          </button>
+        </div>
+        <div class="pg-toolbar d-flex">
+          <button class="pg-button" id="pg-loading" style="display: none;"><i data-feather="refresh-cw"></i></button>
+          <button class="pg-button" id="pg-clear" title="Clear frame contents"><i data-feather="trash"></i></button>
+          <button class="button" id="pg-run" title="Run code">Run</button>
+        </div>
+      </div>
+      <div class="pg-view">
+        <div class="pg-editor d-flex">
+          <textarea class="text-area pg-textbox" id="pg-tb-html" spellcheck="false"></textarea>
+          <textarea class="text-area pg-textbox" id="pg-tb-css" spellcheck="false" style="display: none;"></textarea>
+          <textarea class="text-area pg-textbox" id="pg-tb-js" spellcheck="false" style="display: none;"></textarea>
+        </div>
+        <div class="pg-frame">
+          <div class="overlay"></div>
+          <iframe class="wh-100 border-0" id="pg-html"></iframe>
+        </div>
+      </div>
+      <div class="pg-console w-100 border-box" style="display: none;">
+        <code>
+          <ul id="pg-con">
+          </ul>
+          <span class="bc" style="margin-left: 0;"></span>
+        </code>
+      </div>
+      <div class="status-bar">
+        <div class="status-bar-content">
+          <label class="status-bar-label btn d-flex" id="pg-open-console" title="Open console"><i data-feather="terminal" class="mr-05"></i>Console (<span id="pg-con-count">0</span>)</label>
+          <label class="status-bar-label" id="pg-state"></label>
+        </div>
+        <div class="status-bar-content">
+          <label class="status-bar-label btn" id="pg-live-reload" title="Enable/disable live reload">Live Reload:&nbsp;<span id="pg-lr-state"> Disabled</span></label>
+          <label class="status-bar-label btn" id="pg-tab-spaces" title="Change tab spaces">Spaces:&nbsp;<span id="pg-sp-count">2</span></label>
+          <label class="status-bar-label" id="pg-line-col">Ln 1, Col 0</label>
+        </div>
+      </div>
+    </div>
+    <!-- Paint -->
+    <div class="window" id="paint" style="display: none;">
+      <div class="csd">
+        <img class="csd-icon" src="assets/paint.svg">
+        <label class="csd-title rename" title="Click to rename">Untitled</label>
+        <span contenteditable="true" class="csd-rename" id="paint-rename" spellcheck="false" style="display: none;"></span>
+        <div class="csd-buttons">
+          <i data-feather="chevron-down" class="csd-button minimize-app" value="#paint"></i>
+          <i data-feather="chevron-up" class="csd-button maximize-app" value="#paint"></i>
+          <i data-feather="x" class="csd-button close-app" value="#paint"></i>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="paint-toolbar d-flex">
+          <div class="toolbar-button" id="paint-open" title="Open image"><i data-feather="folder"></i></div>
+          <div class="toolbar-button" id="paint-save" title="Save image"><i data-feather="save"></i></div>
+          <input type="file" id="paint-file" hidden="true">
+        </div>
+        <div class="paint-palette paint-toolbar d-flex fv-center text-right">
+          <button type="button" class="paint-color" style="background-color: #f00;"></button>
+          <button type="button" class="paint-color" style="background-color: #0f0;"></button>
+          <button type="button" class="paint-color" style="background-color: #00f;"></button>
+          <button type="button" class="paint-color" style="background-color: #0ff;"></button>
+          <button type="button" class="paint-color" style="background-color: #f0f;"></button>
+          <button type="button" class="paint-color" style="background-color: #ff0;"></button>
+          <button type="button" class="paint-color selected" style="background-color: #000;"></button>
+          <button type="button" class="paint-color" style="background-color: #fff;"></button>
+          <button type="button" class="paint-color custom d-flex fv-center" id="paint-custom"><i data-feather="plus"></i></button>
+          <input type="color" id="paint-color-picker" hidden="true">
+          <select class="select-box" id="paint-brush-size" title="Brush size">
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="paint-toolbar d-flex">
+          <div class="toolbar-button" id="paint-clear" title="Clear canvas"><i data-feather="trash"></i></div>
+          <div class="toolbar-button" id="paint-viewer" title="Open in Image Viewer"><i data-feather="image"></i></div>
+        </div>
+      </div>
+      <div class="paint-content padded-sm wh-100">
+        <canvas id="paint-canvas"></canvas>
+      </div>
+      <div class="status-bar d-flex">
+        <label class="status-bar-label" id="paint-state"></label>
+        <label class="status-bar-label"><i data-feather="crop" class="mr-05"></i><span id="paint-wh">720x480</span></label>
+      </div>
+    </div>
+    <!-- Panel -->
+    <div class="panel">
+      <div class="panel-icons">
+        <div class="app-drawer" id="open-drawer" title="Open the app drawer">
+          <i data-feather="menu" class="app-icon" title="App Drawer"></i>
+        </div>
+        <div class="app-tile open-app" id="files-p" value="#files" title="File Manager" pinned="1">
+          <img class="app-icon" src="assets/files.svg">
+          <div class="active-ind" id="files-ai" style="display: none;"></div>
+        </div>
+        <div class="app-tile open-app" id="web-p" value="#web" title="Web" pinned="1">
+          <img class="app-icon" src="assets/web.svg">
+          <div class="active-ind" id="web-ai" style="display: none;"></div>
+        </div>
+        <div class="app-tile open-app" id="calc-p" value="#calc" title="Calculator" pinned="1">
+          <img class="app-icon" src="assets/calc.svg">
+          <div class="active-ind" id="calc-ai" style="display: none;"></div>
+        </div>
+        <div class="app-tile open-app" id="ed-p" value="#ed" title="Text Editor" pinned="1">
+          <img class="app-icon" src="assets/ed.svg">
+          <div class="active-ind" id="ed-ai" style="display: none;"></div>
+        </div>
+        <div class="app-tile open-app" id="term-p" value="#term" title="Terminal" pinned="1">
+          <img class="app-icon" src="assets/term.svg">
+          <div class="active-ind" id="term-ai" style="display: none;"></div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-tray">
+          <div class="panel-tray-item" id="open-wifi" title="Wi-Fi">
+            <i data-feather="wifi"></i>
+          </div>
+          <div class="panel-tray-item" id="open-sound" title="Sound">
+            <i data-feather="volume-2"></i>
+          </div>
+          <div class="panel-tray-item" id="open-brightness" title="Brightness">
+            <i data-feather="sun"></i>
+          </div>
+          <div class="panel-tray-item">
+            <i data-feather="coffee" title="Coffee"></i>
+          </div>
+          <div class="panel-tray-item">
+            <i data-feather="bell" title="Notifications"></i>
+          </div>
+        </div>
+        <label class="time" id="time"></label>
+        <div class="panel-tray-item show-desktop" title="Show desktop">
+          <i data-feather="monitor"></i>
+        </div>
+      </div>
+    </div>
+    <!-- Resize popover -->
+    <div class="res" style="display: none;">
+      <label id="res-val"></label>
+    </div>
+    <!-- App Drawer popover -->
+    <div class="drawer popover" id="drawer" style="display: none;">
+      <ul class="drawer-nav">
+        <li class="drawer-item open-app" value="#intro">
+          <img class="drawer-item-icon" src="assets/intro.svg">
+          <label>Introduction</label>
+        </li>
+        <li class="drawer-item open-app" value="#files">
+          <img class="drawer-item-icon" src="assets/files.svg">
+          <label>File Manager</label>
+        </li>
+        <li class="drawer-item open-app" value="#calc">
+          <img class="drawer-item-icon" src="assets/calc.svg">
+          <label>Calculator</label>
+        </li>
+        <li class="drawer-item open-app" value="#ed">
+          <img class="drawer-item-icon" src="assets/ed.svg">
+          <label>Text Editor</label>
+        </li>
+        <li class="drawer-item open-app" value="#image">
+          <img class="drawer-item-icon" src="assets/image.svg">
+          <label>Image Viewer</label>
+        </li>
+        <li class="drawer-item open-app" value="#term">
+          <img class="drawer-item-icon" src="assets/term.svg">
+          <label>Terminal</label>
+        </li>
+        <li class="drawer-item open-app" value="#web">
+          <img class="drawer-item-icon" src="assets/web.svg">
+          <label>Browser</label>
+        </li>
+        <li class="drawer-item open-app" value="#paint">
+          <img class="drawer-item-icon" src="assets/paint.svg">
+          <label>Paint</label>
+        </li>
+        <li class="drawer-item open-app" value="#playground">
+          <img class="drawer-item-icon" src="assets/playground.svg">
+          <label>Playground</label>
+        </li>
+        <li class="drawer-item open-app" value="#emu">
+          <img class="drawer-item-icon" src="assets/emu.svg">
+          <label>Games</label>
+        </li>
+        <li class="drawer-item open-app" value="#vscode">
+          <img class="drawer-item-icon" src="assets/vscode.ico">
+          <label>Code</label>
+        </li>
+        <li class="drawer-item open-app" value="#run">
+          <img class="drawer-item-icon" src="assets/run.svg">
+          <label>Run</label>
+        </li>
+      </ul>
+      <div class="user-options">
+        <div class="set-options">
+          <button type="button" class="user-options-button user-settings" title="Open settings"><i data-feather="settings"></i></button>
+          <button type="button" class="user-options-button fullscreen" title="Go to fullscreen"><i data-feather="maximize"></i></button>
+          <button type="button" class="user-options-button exit-fs" title="Exit fullscreen" style="display: none;"><i data-feather="minimize"></i></button>
+        </div>
+        <div class="set-options power-options text-right">
+          <button type="button" class="user-options-button logout" title="Log out of the current session"><i data-feather="log-out"></i></button>
+          <button type="button" class="user-options-button shutdown" title="Power off CoffeeOS"><i data-feather="power"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- Wi-Fi popover -->
+    <div class="popover" id="wifi" style="display: none;">
+      <ul class="drawer-nav">
+        <li class="drawer-item">
+          <i data-feather="wifi" class="wifi-icon"></i>
+          <label>Unknown</label>
+        </li>
+        <li class="drawer-item">
+          <i data-feather="wifi-off" class="wifi-icon"></i>
+          <label>Neighbor's Wi-Fi</label>
+        </li>
+      </ul>
+    </div>
+    <!-- Sound popover -->
+    <div class="popover" id="sound" style="display: none;">
+      <div class="volume-icon">
+        <i data-feather="volume-2"></i>
+      </div>
+      <input type="range" class="volume-range">
+      <label class="volume-ind">50</label>
+    </div>
+    <!-- Sound popover -->
+    <div class="popover" id="brightness" style="display: none;">
+      <div class="brightness-icon">
+        <i data-feather="sun"></i>
+      </div>
+      <input type="range" min="50" max="150" value="100" class="brightness-range">
+    </div>
+    <!-- Desktop context menu -->
+    <div class="context-menu" id="cm-d" style="display: none;">
+      <label class="context-menu-item" id="cm-refresh">Refresh</label>
+      <label class="context-menu-item" id="cm-fullscreen">Enter fullscreen</label>
+      <hr class="context-menu-divider">
+      <label class="context-menu-item" id="cm-newfolder">New folder</label>
+      <label class="context-menu-item" id="cm-newfile">New file</label>
+      <label class="context-menu-item" id="cm-newlink">New link</label>
+      <hr class="context-menu-divider">
+      <label class="context-menu-item" id="cm-terminal">Open terminal here</label>
+      <hr class="context-menu-divider">
+      <label class="context-menu-item" id="cm-background">Customize appearance</label>
+      <label class="context-menu-item" id="cm-settings">Settings</label>
+    </div>
+  </div>
+  <script>
+    feather.replace()
+  </script>
+</body>
+</html>

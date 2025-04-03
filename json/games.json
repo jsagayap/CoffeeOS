@@ -1,0 +1,292 @@
+{
+  "credits": [
+    {
+      "name": "Emupedia",
+      "site": "https://emupedia.net/"
+    },
+    {
+      "name": "WINDOWS93",
+      "site": "https://www.windows93.net/"
+    },
+    {
+      "name": "Saharan",
+      "site": "https://oimo.io/"
+    },
+    {
+      "name": "Dr. Ocelot",
+      "site": "https://twitter.com/doktorocelot/"
+    },
+    {
+      "name": "Maddy Makes Games",
+      "site": "https://mattmakesgames.itch.io/"
+    }
+  ],
+  "games": [
+    {
+      "name": "Agar.io",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/agar.io.ico",
+      "link": "https://emupedia.net/emupedia-game-agar.io/",
+      "width": "900",
+      "height": "540"
+    },
+    {
+      "name": "Bubbles",
+      "icon": "https://oimo.io/thumbs/bubbles.png",
+      "link": "https://oimo.io/works/bubbles/",
+      "width": "900",
+      "height": "540"
+    },
+    {
+      "name": "Command and Conquer",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/command-and-conquer1.ico",
+      "link": "https://emupedia.net/emupedia-game-command-and-conquer1/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Command and Conquer: Red Alert 2",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/red-alert2.ico",
+      "link": "https://emupedia.net/emupedia-game-ra2/",
+      "width": "900",
+      "height": "720"
+    },
+    {
+      "name": "Celeste",
+      "icon": "https://img.itch.zone/aW1hZ2UvMzEzMTgvMTMzNjQyLmdpZg==/32x32%23m/tBh0Wy.gif",
+      "link": "https://v6p9d9t4.ssl.hwcdn.net/html/235259/Celeste/index.html?v=1542780913",
+      "width": "582",
+      "height": "570"
+    },
+    {
+      "name": "Doom",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/doom1.ico",
+      "link": "https://emupedia.net/emupedia-game-doom1/",
+      "width": "640",
+      "height": "400"
+    },
+    {
+      "name": "Doom II",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/doom2.ico",
+      "link": "https://emupedia.net/emupedia-game-doom2/",
+      "width": "640",
+      "height": "400"
+    },
+    {
+      "name": "Doom 3",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/doom3.ico",
+      "link": "https://emupedia.net/emupedia-game-doom3/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Flappy Bird",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/flappy-bird.ico",
+      "link": "https://emupedia.net/emupedia-game-flappy-bird/",
+      "width": "440",
+      "height": "640"
+    },
+    {
+      "name": "Freeciv",
+      "icon": "https://www.freecivweb.org/images/freeciv-shortcut-icon.png",
+      "link": "https://www.freecivweb.org/webclient/?action=new&type=singleplayer",
+      "width": "900",
+      "height": "540"
+    },
+    {
+      "name": "Fruit Ninja",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/fruit-ninja.ico",
+      "link": "https://emupedia.net/emupedia-game-fruit-ninja/",
+      "width": "900",
+      "height": "540"
+    },
+    {
+      "name": "Gartic",
+      "icon": "https://gartic.io/favicon.ico",
+      "link": "https://gartic.io/",
+      "width": "1280",
+      "height": "720"
+    },
+    {
+      "name": "Half-Life",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/half-life1.ico",
+      "link": "https://emupedia.net/emupedia-game-half-life1/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Helicopter",
+      "icon": "https://funhtml5games.com/helicopter/style/img/heli.png",
+      "link": "https://funhtml5games.com/helicopter/index.html",
+      "width": "680",
+      "height": "530"
+    },
+    {
+      "name": "Kof'93",
+      "icon": "https://www.windows93.net/c/programs/kof93/gief.gif",
+      "link": "https://www.windows93.net/c/programs/kof93/",
+      "width": "1280",
+      "height": "720"
+    },
+    {
+      "name": "Minecraft",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/minecraft-classic.ico",
+      "link": "https://emupedia.net/emupedia-game-minecraft-classic/",
+      "width": "720",
+      "height": "480"
+    },
+    {
+      "name": "Minesweeper",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/minesweeper.ico",
+      "link": "https://emupedia.net/emupedia-game-minesweeper/",
+      "width": "500",
+      "height": "350"
+    },
+    {
+      "name": "OpenTTD",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/openttd.ico",
+      "link": "https://emupedia.net/emupedia-game-openttd/",
+      "width": "900",
+      "height": "480"
+    },
+    {
+      "name": "Pac-Man",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/pac-man.ico",
+      "link": "https://pacman-e281c.firebaseapp.com/",
+      "width": "572",
+      "height": "781"
+    },
+    {
+      "name": "Prince of Persia",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/prince-of-persia1.ico",
+      "link": "https://emupedia.net/emupedia-game-prince/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Quake I",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/quake1.ico",
+      "link": "https://emupedia.net/emupedia-game-quake1/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Quake II",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/quake2.ico",
+      "link": "https://emupedia.net/emupedia-game-quake2/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Quake III Arena",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/quake3.ico",
+      "link": "https://emupedia.net/emupedia-game-quake3/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "SandVox Simulator",
+      "icon": "https://oimo.io/thumbs/sandvox.png",
+      "link": "https://oimo.io/works/sandvox/",
+      "width": "900",
+      "height": "540"
+    },
+    {
+      "name": "SIM 93",
+      "icon": "https://www.windows93.net/c/sys/skins/w93/apps/visualNovel.png",
+      "link": "https://www.windows93.net/c/programs/visualNovel/index.html",
+      "width": "642",
+      "height": "482"
+    },
+    {
+      "name": "Solitaire Classic",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/solitaire.ico",
+      "link": "https://emupedia.net/emupedia-game-solitaire/",
+      "width": "720",
+      "height": "480"
+    },
+    {
+      "name": "Solitude",
+      "icon": "https://www.windows93.net/c/sys/skins/w93/apps/solitaire.gif",
+      "link": "https://www.windows93.net/c/programs/solitude/index.html",
+      "width": "590",
+      "height": "480"
+    },
+    {
+      "name": "Space Cadet Pinball",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/space-cadet-pinball.ico",
+      "link": "https://emupedia.net/emupedia-game-space-cadet-pinball/",
+      "width": "600",
+      "height": "440"
+    },
+    {
+      "name": "Street Fighter Alpha",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/street-fighter/ryu.ico",
+      "link": "https://emupedia.net/emupedia-game-street-fighter-alpha/",
+      "width": "800",
+      "height": "600"
+    },
+    {
+      "name": "Super Mario Bros",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/mario.ico",
+      "link": "https://emupedia.net/emupedia-game-mario/",
+      "width": "900",
+      "height": "576"
+    },
+    {
+      "name": "TETRIS",
+      "icon": "assets/text.svg",
+      "link": "https://ytiurin.github.io/tetris/",
+      "width": "800",
+      "height": "600"
+    },
+    {
+      "name": "Tetra Legends",
+      "icon": "https://tetralegends.app/favicon-32x32.png",
+      "link": "https://tetralegends.app/",
+      "width": "1280",
+      "height": "720"
+    },
+    {
+      "name": "Tomb Raider",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/tomb-raider1.ico",
+      "link": "https://emupedia.net/emupedia-game-tomb-raider/",
+      "width": "900",
+      "height": "550"
+    },
+    {
+      "name": "Unreal Tournament",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/unreal-tournament.ico",
+      "link": "https://emupedia.net/emupedia-game-unreal-tournament/",
+      "width": "640",
+      "height": "480"
+    },
+    {
+      "name": "Wolfenstein 3D",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/wolfenstein-3d.ico",
+      "link": "https://emupedia.net/emupedia-game-wolfenstein-3d/",
+      "width": "640",
+      "height": "400"
+    },
+    {
+      "name": "Yume Nikki",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/yume-nikki.ico",
+      "link": "https://emupedia.net/emupedia-game-yume-nikki/",
+      "width": "960",
+      "height": "720"
+    },
+    {
+      "name": "X-COM: UFO Defense",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/xcom1.ico",
+      "link": "https://emupedia.net/emupedia-game-xcom1/",
+      "width": "960",
+      "height": "600"
+    },
+    {
+      "name": "Zelda",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/zelda.ico",
+      "link": "https://emupedia.net/emupedia-game-zelda/",
+      "width": "900",
+      "height": "480"
+    }
+  ]
+}

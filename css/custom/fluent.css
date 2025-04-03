@@ -1,0 +1,152 @@
+.light {
+  --csd-color: #ffffff;
+  --surface-color: #ffffff;
+  --dropdown-color: #eeeeee;
+  --text-color: #000000;
+  --text-color-rgb: 0, 0, 0;
+  --contrast-1-rgb: 238, 238, 238;
+  --contrast-2-rgb: 17, 17, 17;
+  --popover-rgb: 221, 221, 221;
+  color-scheme: light;
+}
+
+.dark {
+  --csd-color: #000000;
+  --surface-color: #000000;
+  --dropdown-color: #2b2b2b;
+  --text-color: #ffffff;
+  --text-color-rgb: 255, 255, 255;
+  --contrast-1-rgb: 17, 17, 17;
+  --contrast-2-rgb: 255, 255, 255;
+  --popover-rgb: 34, 34, 34;
+  color-scheme: dark;
+}
+
+.window {
+  border-color: rgba(var(--contrast-2-rgb), .25);
+  border-radius: 0;
+}
+
+.csd {
+  height: 30px;
+  padding: 0 0 0 12px;
+  justify-content: unset;
+  border-bottom: 0;
+}
+
+.csd-title {
+  position: static;
+  transform: none;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 12px;
+}
+
+.csd-buttons {
+  margin-left: auto;
+  gap: 0;
+}
+
+.csd-button {
+  width: 48px;
+  height: 30px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.close-app:hover {
+  background-color: #f7182f;
+}
+
+.app-tile,
+.app-drawer {
+  width: 46px;
+  height: 46px;
+  margin-right: 1px;
+  border-radius: 0;
+}
+
+.app-tile.active-tile {
+  background: rgba(var(--contrast-2-rgb), .2);
+}
+
+.app-tile[minimized="1"] {
+  background-color: transparent;
+}
+
+.active-ind {
+  background-color: rgb(var(--accent-rgb));
+  width: 48px;
+  border-radius: 0;
+}
+
+.sidebar {
+  background-color: transparent;
+  border-right: transparent;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 6px;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: transparent;
+}
+
+.sidebar-item.active::before {
+  content: "";
+  background-color: var(--accent-color);
+  width: 4px;
+  height: 24px;
+  display: block;
+  position: absolute;
+  left: 0;
+}
+
+.input-box,
+.select-box {
+  background-color: var(--surface-color);
+  border: 2px solid rgba(var(--contrast-2-rgb), .3);
+  border-radius: 0;
+}
+
+.input-box:focus,
+.input-box:active {
+  border-color: var(--accent-color);
+}
+
+.button {
+  background-color: rgba(var(--contrast-2-rgb), .25);
+  border-radius: 0;
+}
+
+.toast {
+  border-radius: 0;
+}
+
+.context-menu {
+  background-color: var(--dropdown-color);
+  padding: 4px 0;
+}
+
+.context-menu-item {
+  font-size: 13px;
+  margin: 0;
+  padding: 6px 32px;
+  border-radius: 0;
+}
+
+.context-menu-divider {
+  margin: 4px 10px;
+}
+
+.context-menu,
+.toolbar-button,
+.dropdown-content,
+.dropdown-item {
+  border-radius: 0;
+}

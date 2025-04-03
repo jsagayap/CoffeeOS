@@ -1,0 +1,39 @@
+{
+  "links": [
+    {
+      "name": "Wikipedia",
+      "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+      "link": "https://en.wikipedia.org/wiki/Main_Page"
+    },
+    {
+      "name": "Internet Archive",
+      "icon": "https://archive.org/offshoot_assets/favicon.ico",
+      "link": "https://archive.org/"
+    },
+    {
+      "name": "Free Software Foundation",
+      "icon": "https://static.fsf.org/fsforg/img/favicon.ico",
+      "link": "https://www.fsf.org/"
+    },
+    {
+      "name": "Mastodon",
+      "icon": "https://joinmastodon.org/_next/static/media/favicon-32x32.3a702fe9.png",
+      "link": "https://joinmastodon.org/"
+    },
+    {
+      "name": "EmuOS v1.0",
+      "icon": "https://emupedia.net/beta/emuos/assets/images/logos/emupedia/emupedia-logo.svg",
+      "link": "https://emupedia.net/beta/emuos/"
+    },
+    {
+      "name": "WINDOWS93",
+      "icon": "https://www.windows93.net/favicon.ico?v=2.4.8",
+      "link": "https://www.windows93.net/"
+    },
+    {
+      "name": "CoffeeOS Classic",
+      "icon": "https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/icon.svg?v=1652263175191",
+      "link": "https://coffee-os.glitch.me/classic"
+    }
+  ]
+}
