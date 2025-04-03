@@ -1,0 +1,14 @@
+body {
+  background-color: #3b3b3b;
+  color: #bbbbbb;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+div {
+  width: 100%;
+  text-align: center;
+}
