@@ -32,8 +32,8 @@
     },
     {
       "name": "CoffeeOS Classic",
-      "icon": "https://cdn.glitch.global/0beaef3a-f182-41c0-8786-6d2e8de9ceab/icon.svg?v=1652263175191",
-      "link": "https://coffee-os.glitch.me/classic"
+      "icon": "/assets/logo/icon-old.svg",
+      "link": "/classic"
     }
   ]
 }
