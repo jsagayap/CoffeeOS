@@ -9,7 +9,7 @@ var iconDrag = false, cmActive = false, plsWait = false, firstLg = false;
 
 var apps = ["calc", "ed", "emu", "files", "image", "intro", "paint", "playground", "run", "settings", "term", "vscode", "web"];
 var proc = [];
-var ver = "2023.2 Dev";
+var ver = "2025.5.1 Dev";
 
 /* Load some stuff */
 $.ajax({
@@ -613,6 +613,8 @@ $(document).ready(function() {
   });
   
   /* File Manager */
+  $(".current-dir").val("/home/" + user.toLowerCase());
+
   $("#files-refresh").click(function() {
     filesReload();
     $(".files-list").fadeOut(10).fadeIn(10);
