@@ -134,7 +134,7 @@ $(document).ready(function() {
   });
   
   $("#cm-newfolder").click(function() {
-    $(".desktop-icons").append("<div class='file'><img class='file-icon' src='assets/folder.svg'><label class='file-name' id='file-rename' spellcheck='false' contenteditable='true'>New folder</label></div>");
+    $(".desktop-icons").append("<div class='file'><img class='file-icon' src='/assets/icons/default/places/folder.svg'><label class='file-name' id='file-rename' spellcheck='false' contenteditable='true'>New folder</label></div>");
     $("#file-rename").focus();
   });
   
@@ -621,16 +621,16 @@ $(document).ready(function() {
   function filesReload() {
     $(".files-list").empty();
     for (var i = 0; i < files.home.length; i++) {
-      $(".files-list").prepend("<div class='file'><img class='file-icon' src='assets/folder.svg'><label class='file-name'>" + files.home[i].name + "</label></div>");
+      $(".files-list").prepend("<div class='file'><img class='file-icon' src='/assets/icons/default/places/folder.svg'><label class='file-name'>" + files.home[i].name + "</label></div>");
     }
-    $(".files-list").append("<div class='file' data-file='CHANGELOG.md'><img class='file-icon' src='assets/markdown.svg'><label class='file-name'>CHANGELOG.md</label></div>");
-    $(".files-list").append("<div class='file' data-file='COMMANDS.md'><img class='file-icon' src='assets/markdown.svg'><label class='file-name'>COMMANDS.md</label></div>");
-    $(".files-list").append("<div class='file' data-file='MOCHA.md'><img class='file-icon' src='assets/markdown.svg'><label class='file-name'>MOCHA.md</label></div>");
-    $(".files-list").append("<div class='file' data-file='README.md'><img class='file-icon' src='assets/markdown.svg'><label class='file-name'>README.md</label></div>");
+    $(".files-list").append("<div class='file' data-file='CHANGELOG.md'><img class='file-icon' src='/assets/icons/default/mimetypes/markdown.svg'><label class='file-name'>CHANGELOG.md</label></div>");
+    $(".files-list").append("<div class='file' data-file='COMMANDS.md'><img class='file-icon' src='/assets/icons/default/mimetypes/markdown.svg'><label class='file-name'>COMMANDS.md</label></div>");
+    $(".files-list").append("<div class='file' data-file='MOCHA.md'><img class='file-icon' src='/assets/icons/default/mimetypes/markdown.svg'><label class='file-name'>MOCHA.md</label></div>");
+    $(".files-list").append("<div class='file' data-file='README.md'><img class='file-icon' src='/assets/icons/default/mimetypes/markdown.svg'><label class='file-name'>README.md</label></div>");
   }
   
   $("#files-newfolder").click(function() {
-    $(".files-list").append("<div class='file'><img class='file-icon' src='assets/folder.svg'><label class='file-name' id='file-rename' spellcheck='false' contenteditable='true'>New folder</label></div>");
+    $(".files-list").append("<div class='file'><img class='file-icon' src='/assets/icons/default/places/folder.svg'><label class='file-name' id='file-rename' spellcheck='false' contenteditable='true'>New folder</label></div>");
     $("#file-rename").focus();
   });
   
