@@ -13,7 +13,7 @@ var ver = "2025.5.1 Dev";
 
 /* Load some stuff */
 $.ajax({
-  url: "/json/files.json",
+  url: "/data/files.json",
   dataType: "text",
   success: function(data) {
     files = JSON.parse(data);
@@ -21,7 +21,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: "/json/games.json",
+  url: "/data/games.json",
   dataType: "text",
   success: function(data) {
     games = JSON.parse(data);
@@ -29,7 +29,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: "/json/links.json",
+  url: "/data/links.json",
   dataType: "text",
   success: function(data) {
     links = JSON.parse(data);
