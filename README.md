@@ -6,7 +6,7 @@ _Primarily tested on Firefox. Chromium-based browsers not much._
 
 ## Live demo
 
-<h1><a href="https://coffee-os.glitch.me/" target="_blank">Click me!</a></h1>
+<h1><a href="https://coffee-os.netlify.app/" target="_blank">Click me!</a></h1>
 
 ## References
 
@@ -25,7 +25,7 @@ Components used:
 
 Explore the first public release (dated 2022-05-11 23:29) of this project here:
 
-<a href="https://coffee-os.glitch.me/classic" target="_blank">Bring me back to the past!</a>
+<a href="/classic" target="_blank">Bring me back to the past!</a>
 
 _Note: Files have been slightly modified to fix external file linking issues_
 
