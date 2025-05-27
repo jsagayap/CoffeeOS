@@ -1433,7 +1433,7 @@ $(document).ready(function() {
   });
   
   $.ajax({
-    url: "/pg/sample_html.html",
+    url: "/bin/pg/sample_html.html",
     dataType: "text",
     success: function(data) {
       $("#pg-tb-html").val(data);
@@ -1441,7 +1441,7 @@ $(document).ready(function() {
   });
   
   $.ajax({
-    url: "/pg/sample_css.css",
+    url: "/bin/pg/sample_css.css",
     dataType: "text",
     success: function(data) {
       $("#pg-tb-css").val(data);
