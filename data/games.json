@@ -86,13 +86,6 @@
       "height": "640"
     },
     {
-      "name": "Freeciv",
-      "icon": "https://www.freecivweb.org/images/freeciv-shortcut-icon.png",
-      "link": "https://www.freecivweb.org/webclient/?action=new&type=singleplayer",
-      "width": "900",
-      "height": "540"
-    },
-    {
       "name": "Fruit Ninja",
       "icon": "https://emupedia.net/beta/emuos/assets/images/icons/desktop/fruit-ninja.ico",
       "link": "https://emupedia.net/emupedia-game-fruit-ninja/",
@@ -234,7 +227,7 @@
     },
     {
       "name": "TETRIS",
-      "icon": "assets/text.svg",
+      "icon": "/assets/icons/default/mimetypes/text.svg",
       "link": "https://ytiurin.github.io/tetris/",
       "width": "800",
       "height": "600"
